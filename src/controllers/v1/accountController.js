@@ -13,6 +13,7 @@ class AccountController {
   login(req, res) {
     const { username, password } = req.body || {};
 
+    console.log('pasok', req.body);
     res.json({
       username,
       password,
