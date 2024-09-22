@@ -1,0 +1,88 @@
+# API Template for AppsDev
+
+## Getting Started
+
+### Requirements
+
+- Node: `^18`
+- NPM: `^10.7.0`
+
+### Local Development
+
+1. Install dependencies
+```sh
+npm install
+```
+
+2. Create `.env`
+
+**Important!** DO NOT COMMIT THIS FILE
+```env
+PORT=3000
+API_KEY={public_key}
+API_SECRET_KEY={private_key}
+```
+
+3. Run development server
+
+```sh
+npm run dev
+```
+
+### Running example client-side
+
+```env
+npx serve public
+```
+
+
+## Testing API Endpoints
+
+### V1 Home
+Verify if the application is running.
+
+- Request Method: `GET`
+
+```sh
+curl http://localhost:{port}/v1/
+```
+
+**Example Response**
+```json
+{"message":"V1 API is App and Running!","controller":"Home"
+```
+
+### V1 /account/login
+Authenticate and sign a JWT for the user's session.
+
+- Request Method: `POST`
+- Request Headers:
+  - `apikey: {public_key}`
+  - `content-type: application/json`
+- Body: JSON Payload with `username` and `password`
+    
+```sh
+curl -XPOST http://localhost:3000/v1/account/login -d '{"username":"juan","password":"tamad"}' -H "apikey: hello" -H "content-type: application/json"
+```
+
+**Example Response**
+```json
+{"success":true,"data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imp1YW4iLCJpYXQiOjE3MjcwMTMwMjgsImV4cCI6MTcyNzA5OTQyOH0.Knt_g1ChjtV04ysC_uk1NNKEkt7DPj6Xid7Cczrbww8"}}
+```
+
+### V1 /account/profile
+Verify JWT token and fetch user information
+
+- Request Method: `GET`
+- Request Headers:
+  - `apikey: {public_key}`
+  - `token: {jwt_token}`
+
+```sh
+ curl http://localhost:3000/v1/account/profile -H "apikey: hello" -H "token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imp1YW4iLCJpYXQiOjE3MjcwMTMwMjgsImV4cCI6MTcyNzA5OTQyOH0.Knt_g1ChjtV04ysC_uk1NNKEkt7DPj6Xid7Cczrbww8
+```
+
+**Example Response**
+```sh
+{"success":true,"data":{"username":"juan","fullname":"Juan Tamad"}
+```
