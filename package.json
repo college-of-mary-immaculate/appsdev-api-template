@@ -12,7 +12,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "engines": {
+    "node": "^18"
+  },
+  "description": "Simple API Template for AppsDev",
   "dependencies": {
     "body-parser": "^1.20.3",
     "cookie-parser": "^1.4.6",
