@@ -21,9 +21,16 @@ npm install
 PORT=3000
 API_KEY={public_key}
 API_SECRET_KEY={private_key}
+
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=example
+DB_NAME=api
 ```
 
-3. Run development server
+3. Import database schema `api.sql`
+
+4. Run development server
 
 ```sh
 npm run dev
@@ -38,7 +45,7 @@ npx serve public
 
 ## Testing API Endpoints
 
-### V1 Home
+### GET v1
 Verify if the application is running.
 
 - Request Method: `GET`
@@ -52,7 +59,7 @@ curl http://localhost:{port}/v1/
 {"message":"V1 API is App and Running!","controller":"Home"
 ```
 
-### V1 /account/login
+### GET v1/account/login
 Authenticate and sign a JWT for the user's session.
 
 - Request Method: `POST`
@@ -70,7 +77,19 @@ curl -XPOST http://localhost:3000/v1/account/login -d '{"username":"juan","passw
 {"success":true,"data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imp1YW4iLCJpYXQiOjE3MjcwMTMwMjgsImV4cCI6MTcyNzA5OTQyOH0.Knt_g1ChjtV04ysC_uk1NNKEkt7DPj6Xid7Cczrbww8"}}
 ```
 
-### V1 /account/profile
+### POST v1/account
+Create a new account
+
+- Request Method: `POST`
+- Request Headers:
+  - `apikey: {public_key}`
+  - `content-type: application/json`
+
+```sh
+curl -XPOST 'http://localhost:3000/v1/account' -d '{"username":"aldrich","password":"1q2w","fullname":"John Aldrich Bernardo"}' -H "apikey: hello" -H 'content-type: application/json'
+```
+
+### GET v1/account
 Verify JWT token and fetch user information
 
 - Request Method: `GET`
