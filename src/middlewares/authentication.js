@@ -29,8 +29,8 @@ export default function authorization(req, res, next) {
 
     res.locals.username = decoded?.username;
     res.locals.authenticated = true;
+    next();
   });
 
-  next();
 }
 
