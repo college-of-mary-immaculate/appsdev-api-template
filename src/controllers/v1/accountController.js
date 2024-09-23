@@ -1,8 +1,31 @@
 import jwt from 'jsonwebtoken';
+import User from '../../models/users.js';
 
 class AccountController {
   constructor() {
+    this.user = new User();
+  }
 
+  /**
+   * Create account controller
+   *
+   * @param {Request} req
+   * @param {Response} res
+   * @returns {void}
+   *
+   */
+  async create(req, res) {
+    const { username, password, fullname } = req.body || {};
+
+    const response = await this.user.create(username, password, fullname);
+
+    res.json({
+      success: true,
+      data: {
+        recordIndex: response?.insertId
+      },
+    });
+    res.end();
   }
 
   /**
@@ -12,8 +35,17 @@ class AccountController {
    * @param {Response} req 
    * @returns {void}
    */
-  login(req, res) {
-    const { username } = req.body || {};
+  async login(req, res) {
+    const { username, password } = req.body || {};
+
+    const result = await this.user.verify(username, password);
+
+    if (!result?.id) {
+      return res.json({
+        success: false,
+        message: 'Invalid username or password',
+      });
+    }
 
     res.json({
       success: true,
@@ -36,6 +68,7 @@ class AccountController {
    *
    */
   profile(req, res) {
+    console.log('<debug>', res.locals);
     res.json({
       success: true,
       data: {
