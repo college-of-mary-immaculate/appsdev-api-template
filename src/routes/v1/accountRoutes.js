@@ -11,8 +11,8 @@ const account = new AccountController();
 accountRouter.use(authorization);
 
 accountRouter.post('/login', account.login.bind(account));
-accountRouter.post('/profile', account.create.bind(account));
-accountRouter.get('/profile', authentication, account.profile.bind(account));
+accountRouter.post('/', account.create.bind(account));
+accountRouter.get('/', authentication, account.profile.bind(account));
 
 export default accountRouter;
 
