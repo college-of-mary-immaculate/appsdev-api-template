@@ -68,7 +68,6 @@ class AccountController {
    *
    */
   profile(req, res) {
-    console.log('<debug>', res.locals);
     res.json({
       success: true,
       data: {
