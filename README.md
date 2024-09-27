@@ -28,7 +28,7 @@ DB_PASS=example
 DB_NAME=api
 ```
 
-3. Import database schema `api.sql`
+3. Import database schema `db.sql`
 
 4. Run development server
 
