@@ -30,6 +30,12 @@ class User {
     }
   }
 
+  /**
+   * Verify if account exists
+   *
+   * @param {string} username 
+   * @param {string} password
+   */
   async verify(username, password) {
     try {
       const [results,] = await connection.execute(

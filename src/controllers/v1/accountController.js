@@ -9,8 +9,8 @@ class AccountController {
   /**
    * Create account controller
    *
-   * @param {Request} req
-   * @param {Response} res
+   * @param {import('express').Request} req
+   * @param {import('express').Response} res
    * @returns {void}
    *
    */
@@ -31,8 +31,8 @@ class AccountController {
   /**
    *  Login Controller
    *
-   * @param {Request} res
-   * @param {Response} req 
+   * @param {import('express').Request} req
+   * @param {import('express').Response} res
    * @returns {void}
    */
   async login(req, res) {
@@ -62,8 +62,8 @@ class AccountController {
    * Get user profile
    *
    * @todo Update this to pull from database
-   * @param {Request} res
-   * @param {Response} req
+   * @param {import('express').Request} req
+   * @param {import('express').Response} res
    * @returns {void}
    *
    */

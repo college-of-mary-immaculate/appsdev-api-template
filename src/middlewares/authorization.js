@@ -1,9 +1,9 @@
 /**
  * authorization middleware for checking if `apikey` is valid
  *
- * @param {Request} req
- * @param {Response} res
- * @param {VoidFunction} next 
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ * @param {import('express').NextFunction} next 
  */
 export default function authorization(req, res, next) {
   const apikey = req.headers.apikey;
