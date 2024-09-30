@@ -3,7 +3,6 @@
 SET NAMES utf8;
 SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
-SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
@@ -17,8 +16,9 @@ CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
   `password` text NOT NULL,
   `fullname` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- 2024-09-23 13:01:36
 
+-- 2024-09-30 14:24:22
