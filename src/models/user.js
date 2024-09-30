@@ -26,7 +26,8 @@ class User {
 
       return results;
     } catch (err) {
-      return err;
+      console.error('<error> user.create', err);
+      throw err;
     }
   }
 
@@ -35,6 +36,8 @@ class User {
    *
    * @param {string} username 
    * @param {string} password
+   * @returns {Object}
+   * @throws {Error}
    */
   async verify(username, password) {
     try {
@@ -43,13 +46,32 @@ class User {
         [username, encryptPassword(password)],
       )
 
-      if (results?.[0]) {
-        return results[0];
-      }
-
-      return null;
+      return results?.[0];
     } catch (err) {
-      return err;
+      console.error('<error> user.verify', err);
+      throw err;
+    }
+  }
+
+  /**
+   * Get user's information
+   *
+   * @param {string} username 
+   * @returns {Object}
+   * @throws {Error}
+   *
+   */
+  async get(username) {
+    try {
+      const [results,] = await connection.execute(
+        'SELECT fullname FROM users WHERE username = ?',
+        [username]
+      )
+
+      return results?.[0];
+    } catch (err) {
+      console.error('<error> user.getInformation', err);
+      throw err;
     }
   }
 }
