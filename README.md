@@ -98,7 +98,7 @@ Verify JWT token and fetch user information
   - `token: {jwt_token}`
 
 ```sh
- curl http://localhost:3000/v1/account/profile -H "apikey: hello" -H "token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imp1YW4iLCJpYXQiOjE3MjcwMTMwMjgsImV4cCI6MTcyNzA5OTQyOH0.Knt_g1ChjtV04ysC_uk1NNKEkt7DPj6Xid7Cczrbww8
+curl http://localhost:3000/v1/account -H "apikey: hello" -H "token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imp1YW4iLCJpYXQiOjE3MjgwNDU0NjIsImV4cCI6MTcyODEzMTg2Mn0.GyrPSfEHJbDIMWnyqR-neGtK4yDPA5rttajBwRCtIsM"
 ```
 
 **Example Response**
