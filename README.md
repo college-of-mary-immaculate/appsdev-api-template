@@ -86,7 +86,7 @@ Create a new account
   - `content-type: application/json`
 
 ```sh
-curl -XPOST 'http://localhost:3000/v1/account' -d '{"username":"aldrich","password":"1q2w","fullname":"John Aldrich Bernardo"}' -H "apikey: hello" -H 'content-type: application/json'
+curl -XPOST 'http://localhost:3000/v1/account' -d '{"username":"juan","password":"tamad","fullname":"Juan Tamad"}' -H "apikey: hello" -H 'content-type: application/json'
 ```
 
 ### GET v1/account
